@@ -8,8 +8,11 @@ public class TestPerson {
     @Test
     public void testDefaultConstructor() {
         // Given
-        String expectedName = "";
-        Integer expectedAge = Integer.MAX_VALUE;
+        String expectedName = null;
+        Integer expectedAge = 0;
+        Character expectedGender = '\u0000';
+        String expectedSound = null;
+        Integer expectedWeight = 0;
 
         // When
         Person person = new Person();
@@ -17,9 +20,17 @@ public class TestPerson {
         // Then
         String actualName = person.getName();
         Integer actualAge = person.getAge();
+        Character actualGender = person.getGender();
+        String actualSound = person.getSound();
+        Integer actualWeight = person.getWeight();
+
 
         Assert.assertEquals(expectedName, actualName);
         Assert.assertEquals(expectedAge, actualAge);
+        Assert.assertEquals(expectedGender, actualGender);
+        Assert.assertEquals(expectedSound, actualSound);
+        Assert.assertEquals(expectedWeight, actualWeight);
+
     }
 
     @Test
@@ -92,5 +103,39 @@ public class TestPerson {
         // Then
         Integer actual = person.getAge();
         Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetGender(){
+        //given
+        Person person = new Person();
+        Character expected = 'M';
+        //when
+        person.setGender('M');
+        Character actual = person.getGender();
+        //then
+        Assert.assertEquals(expected,actual);
+    }
+    @Test
+    public void testSetSound(){
+        //given
+        Person person = new Person();
+        String expected = "Hello";
+        //when
+        person.setSound("Hello");
+        String actual = person.getSound();
+        //then
+        Assert.assertEquals(expected, actual);
+    }
+    @Test
+    public void testSetHeight(){
+        //given
+        Person person = new Person();
+        int expectedWeight = 130;
+        //then
+        person.setWeight(130);
+        int actual = person.getWeight();
+
+        //when
+        Assert.assertEquals(expectedWeight, actual);
     }
 }
